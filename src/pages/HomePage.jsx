@@ -22,16 +22,12 @@ export default function HomePage() {
     useEffect(() => {
         let interval;
         if (status === 'loading') {
-            soundManager.play('SCAN');
             setScanValue(0);
             interval = setInterval(() => {
                 setScanValue(prev => (prev < 99 ? prev + 1 : prev));
             }, 60);
         } else if (status === 'success') {
-            soundManager.play('SUCCESS');
             setScanValue(100);
-        } else if (status === 'error') {
-            soundManager.play('ERROR');
         } else {
             setScanValue(53);
         }
@@ -47,7 +43,6 @@ export default function HomePage() {
             return;
         }
 
-        soundManager.play('CLICK');
         setStatus('loading');
         setErrorMessage('');
         setData(null);
@@ -63,7 +58,6 @@ export default function HomePage() {
     };
 
     const resetTerminal = () => {
-        soundManager.play('CLICK');
         setStatus('idle');
         setSign('');
         setData(null);

@@ -12,7 +12,6 @@ export default function HudTopBar({ scanning = 66 }) {
     const toggleAudio = () => {
         const newState = soundManager.toggle();
         setAudioEnabled(newState);
-        if (newState) soundManager.play('CLICK');
     };
 
     return (

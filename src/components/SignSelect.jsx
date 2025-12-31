@@ -29,12 +29,10 @@ export default function SignSelect({ value, onChange, disabled = false }) {
 
     const handleToggle = () => {
         if (disabled) return;
-        soundManager.play('CLICK');
         setIsOpen(!isOpen);
     };
 
     const handleSelect = (val) => {
-        soundManager.play('CLICK');
         onChange(val);
         setIsOpen(false);
     };
