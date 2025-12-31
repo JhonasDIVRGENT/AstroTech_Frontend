@@ -20,17 +20,20 @@ export default function OracleResult({ data }) {
         useCase = '',
         mindset = '',
         message = '',
-        meta = {}
+        meta = {},
+        brand = 'AstroTech',
+        year = 2026
     } = data;
 
     const formattedStack = formatStack(stack);
+    const displayDate = meta.generatedAt ? formatDate(meta.generatedAt) : formatDate(new Date().toISOString());
 
     return (
         <div className="oracle-results-flow">
             <TerminalFrame label={`[DECODING: ${sign.toUpperCase()}]`}>
 
                 <div className="result-box">
-                    <span className="section-label">{'>>'} PANORAMA 2026</span>
+                    <span className="section-label">{'>>'} PANORAMA {year}</span>
                     <p className="result-main-text">{panorama}</p>
                 </div>
 
@@ -71,9 +74,10 @@ export default function OracleResult({ data }) {
                 </div>
 
                 <footer className="meta-footer">
-                    <span>MODE: {meta.mode?.toUpperCase()}</span>
+                    <span>SYSTEM: {brand.toUpperCase()}</span>
+                    <span>MODE: {meta.mode?.toUpperCase() || 'PRODUCTION'}</span>
                     <span>MODEL: {meta.model || 'LLAMA-4-SCOUT'}</span>
-                    <span>TIMESTAMP: {formatDate(meta.generatedAt)}</span>
+                    <span>TIMESTAMP: {displayDate}</span>
                 </footer>
             </TerminalFrame>
         </div>
