@@ -1,0 +1,58 @@
+/* src/components/SignGrid.css */
+.sign-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.sign-chip {
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid var(--neon-red-dim);
+    color: #ccc;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-mono);
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.sign-chip:hover {
+    border-color: var(--neon-red);
+    background: rgba(255, 0, 0, 0.05);
+    color: #fff;
+}
+
+.sign-chip.active {
+    border-color: var(--neon-red);
+    background: rgba(255, 0, 0, 0.15);
+    color: var(--neon-red);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+.sign-chip__symbol {
+    font-size: 1.5rem;
+}
+
+.sign-chip__label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive grid */
+@media (min-width: 480px) {
+    .sign-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .sign-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

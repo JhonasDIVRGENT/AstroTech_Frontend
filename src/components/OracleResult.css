@@ -1,0 +1,73 @@
+/* src/components/OracleResult.css */
+.oracle-results-flow {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-main-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.section-label {
+    color: var(--neon-red);
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.result-box {
+    border-left: 2px solid var(--neon-red-dim);
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+.stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.stack-tag {
+    border: 1px solid var(--neon-red-dim);
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    color: var(--neon-red);
+    background: rgba(255, 0, 0, 0.05);
+    text-transform: uppercase;
+}
+
+.message-final {
+    color: #00ffff;
+    font-style: italic;
+    font-size: 1.1rem;
+    border-left: 3px solid #00ffff;
+    padding-left: 20px;
+    margin: 30px 0;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+.meta-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #333;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #444;
+}

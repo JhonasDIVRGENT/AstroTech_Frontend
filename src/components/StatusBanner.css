@@ -1,0 +1,86 @@
+/* src/components/StatusBanner.css */
+.status-banner {
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid;
+    animation: slideIn 0.3s ease-out;
+    font-family: var(--font-mono);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.status-banner--error {
+    background: rgba(255, 0, 0, 0.1);
+    border-color: var(--neon-red);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    color: var(--neon-red);
+}
+
+.status-banner--info {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+}
+
+.status-banner--success {
+    background: rgba(0, 255, 150, 0.1);
+    border-color: #00ff96;
+    box-shadow: 0 0 10px rgba(0, 255, 150, 0.2);
+    color: #00ff96;
+}
+
+.status-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.status-message {
+    flex: 1;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.retry-button {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: var(--font-hud);
+    color: #000;
+    background: var(--neon-red);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.retry-button:hover {
+    background: #fff;
+    box-shadow: 0 0 10px #fff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .status-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}

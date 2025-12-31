@@ -1,0 +1,91 @@
+/* src/styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700&display=swap');
+
+:root {
+    --neon-red: #ff3232;
+    --neon-red-dim: #960000;
+    --neon-red-glow: rgba(255, 0, 0, 0.4);
+    --bg-black: #080808;
+    --text-main: #e0e0e0;
+    --text-dim: #666666;
+    --font-hud: 'Orbitron', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* scanlines + grain effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        rgba(255, 0, 0, 0.02);
+    background-size: 100% 4px, 100%;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* HUD Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-hud);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Scrollbar Cyberpunk */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-red);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.text-red {
+    color: var(--neon-red);
+}
+
+.glow-red {
+    text-shadow: 0 0 10px var(--neon-red-glow);
+}
+
+.italic {
+    font-style: italic;
+}

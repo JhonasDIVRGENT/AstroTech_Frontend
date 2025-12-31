@@ -1,0 +1,143 @@
+/* src/components/SignSelect.css */
+.sign-select-custom {
+    margin: 1.5rem 0;
+    width: 100%;
+    position: relative;
+    font-family: var(--font-mono);
+}
+
+.sign-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--neon-red-dim);
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.select-trigger {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    color: var(--neon-red);
+    background: rgba(15, 0, 0, 0.6);
+    border: 1px solid var(--neon-red-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.select-trigger:hover:not(.disabled) {
+    border-color: var(--neon-red);
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+.select-trigger.open {
+    border-color: var(--neon-red);
+    box-shadow: 0 0 15px var(--neon-red-glow);
+}
+
+.select-trigger.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.trigger-arrow {
+    font-size: 0.8rem;
+    color: var(--neon-red-dim);
+}
+
+/* Options Container */
+.select-options-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #0a0a0a;
+    border: 1px solid var(--neon-red);
+    border-top: none;
+    z-index: 1000;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+    animation: fadeInDown 0.2s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.select-options-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 250px;
+    /* Limit height to force scroll */
+    overflow-y: auto;
+}
+
+.select-option {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #1a1a1a;
+    transition: all 0.2s ease;
+    color: #ccc;
+}
+
+.select-option:last-child {
+    border-bottom: none;
+}
+
+.select-option:hover {
+    background: rgba(255, 0, 0, 0.15);
+    color: var(--neon-red);
+}
+
+.select-option.selected {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--neon-red);
+    font-weight: bold;
+}
+
+.option-symbol {
+    font-size: 1.4rem;
+    width: 25px;
+    text-align: center;
+}
+
+.option-label {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Custom scrollbar for the options list */
+.select-options-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.select-options-list::-webkit-scrollbar-track {
+    background: #000;
+}
+
+.select-options-list::-webkit-scrollbar-thumb {
+    background: var(--neon-red-dim);
+}
+
+.select-options-list::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-red);
+}
